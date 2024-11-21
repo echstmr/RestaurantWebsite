@@ -8,8 +8,203 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"/>
     <!-- CSS File -->
      <link rel="stylesheet" href="./Assets/CSS/menu.css">
+     <style>
+        #loader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #000000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 999999;
+        }
+
+        #loader:after {
+          content: "";
+          width: 50px;
+          height: 50px;
+          border: 5px solid #ccc;
+          border-top: 5px solid #000;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+                
+     </style>
+     <style>
+        .modal {
+            z-index: 9999999;
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); 
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s ease-in-out;
+        }
+
+        .modal-content {
+            color: green;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+         }
+        </style>
+     
 </head>
 <body>
-    
+    <!-- Modal Structure -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <p>Item successfully added to the cart!</p>
+        </div>
+        
+    </div>
+
+    <!-- SIDEBAR SECTION-->
+    <div class="bar-icon" id="sideBar">
+        <span><i class="fa-solid fa-bars fa-2xl"></i></span>
+    </div>
+
+    <div class="menu-icons">
+        
+         <div class="sidebar-icons">
+            <span onclick="window.location.href='./index.html'"><i class="fa-solid fa-s fa-2xl"></i></span>
+            <span onclick="window.location.href='./index.html'"><i class="fa-solid fa-house fa-2xl"></i></span>
+            <span><i class="fa-solid fa-utensils fa-2xl"></i></span>
+            <span class="cart"><i class="fa-solid fa-cart-shopping fa-2xl"></i>
+                <p id="addCart" class="add-cart">0</p></span>
+           
+            <span><i class="fa-solid fa-location-dot fa-2xl"></i></span>
+            <span onclick="window.location.href='./index.html'"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></span>
+         </div>
+    </div>
+    <!-- END SIDEBAR SECTION-->
+
+    <!-- START FOOD SECTION -->
+    <div class="menu container">
+        <div class="headings">
+             <h1>Shushi Food</h1>
+        <div class="line"></div>
+      
+
+        </div>
+       
+        <div class="foods-wrapper">
+            <div class="food">
+                <div class="food-img">
+                    <img src="./Assets/IMG/food1.png" alt="food-img">
+                    <p>Smashed Avo</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+             
+            </div>
+            <div class="food">
+                <div class="food-img">
+                    <img src="./Assets/IMG/food2.png" alt="food-img">
+                    <p>Yin & Yang</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+               
+            </div>
+            <div class="food">
+                <div class="food-img">
+                    <img src="./Assets/IMG/food3.png" alt="food-img">
+                    <p>Pancakes</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                
+            </div>
+            <div class="food">
+                <div class="food-img">
+                    <img src="./Assets/IMG/food4.png" alt="food-img">
+                    <p>Huevos Rancheros</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+             
+            </div>
+            <div class="food">
+                <div class="food-img">
+                    <img src="./Assets/IMG/food4.png" alt="food-img">
+                    <p>Smashed Avo</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+               
+            </div>
+            <div class="food">
+                <div class="food-img">
+                    <img src="./Assets/IMG/food3.png" alt="food-img">
+                    <p>Smashed Avo</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+             
+            </div>
+            <div class="food">
+                <div class="food-img">
+                    <img src="./Assets/IMG/food2.png" alt="food-img">
+                    <p>Smashed Avo</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                
+             
+            </div>
+            <div class="food">
+                <div class="food-img">
+                    <img src="./Assets/IMG/food1.png" alt="food-img">
+                    <p>Smashed Avo</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+
+     <!-- END FOOD SECTION -->
+         <!-- Loading Animtion -->
+        <div id="loader"></div>
+        <div id="content" style="display: none;">
+
+
+    <!-- loadiong animation script -->
+     <script>
+        window.onload = function () {
+          const loader = document.getElementById('loader');
+          const content = document.getElementById('content');
+          loader.style.display = 'none';
+          content.style.display = 'block';
+        };
+     </script>
+
+    <!--Show Hide SideBar  -->
+    <script>
+        const sideBar = document.getElementById('sideBar');
+        const menuIcons = document.querySelector('.menu-icons');
+
+        sideBar.addEventListener('click', () => {
+           
+            menuIcons.classList.toggle('show-menu'); 
+        });
+    </script>
+     
+     <!-- JS ADD TO CART -->
+     <script src="./Assets/JS/addcart.js"></script>
 </body>
 </html>
