@@ -29,5 +29,10 @@
     color: #fff !important; 
   }
   
+  @media (max-width: 500px){
+    .swiper-button-next, .swiper-button-prev {
+        display: none !important;
+      }
+}
 
 
