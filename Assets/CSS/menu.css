@@ -155,6 +155,10 @@ width: 80%;
        display: flex;
        
     }
+    
+    .bar-icon{
+        display: block !important;
+    }
 
     .foods-wrapper{
       margin-top: 80px;
@@ -178,8 +182,9 @@ width: 80%;
         position: absolute;
         left: 75%;
     }
+    
     .menu-icons.show-menu{
-        display: block;
+        display: block !important;
         display: flex;
         
      }
