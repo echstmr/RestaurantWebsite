@@ -95,6 +95,7 @@ width: 80%;
     top: 90px;
     left: 100px;
     border-radius: 10px;
+    z-index: 9999999999;
 }
 .bar-icon{
     position: absolute;
@@ -102,6 +103,7 @@ width: 80%;
     right: 0;
     top: 50px;
     display: none;
+    cursor: pointer;
     
 }
 .sidebar-icons{
@@ -184,7 +186,7 @@ width: 80%;
     }
     
     .menu-icons.show-menu{
-        display: block !important;
+        display: block ;
         display: flex;
         
      }

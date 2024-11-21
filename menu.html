@@ -177,10 +177,10 @@
     </div>
 
 
-     <!-- END FOOD SECTION -->
-         <!-- Loading Animtion -->
-        <div id="loader"></div>
-        <div id="content" style="display: none;">
+    <!-- END FOOD SECTION -->
+    <!-- Loading Animtion -->
+    <div id="loader"></div>
+    <div id="content" style="display: none;">
 
 
     <!-- loadiong animation script -->
@@ -195,14 +195,29 @@
 
     <!--Show Hide SideBar  -->
     <script>
+
         const sideBar = document.getElementById('sideBar');
         const menuIcons = document.querySelector('.menu-icons');
-
+      
+    
         sideBar.addEventListener('click', () => {
-           
-            menuIcons.classList.toggle('show-menu'); 
+          menuIcons.classList.toggle('show-menu');
         });
+      
+       
+        document.addEventListener('click', (event) => {
+          if (!sideBar.contains(event.target) && !menuIcons.contains(event.target)) {
+            menuIcons.classList.remove('show-menu');
+          }
+        });
+      
+        
+        window.addEventListener('scroll', () => {
+          menuIcons.classList.remove('show-menu');
+        });
+
     </script>
+      
      
      <!-- JS ADD TO CART -->
      <script src="./Assets/JS/addcart.js"></script>
