@@ -36,10 +36,9 @@ body{
     justify-content: center;
     align-items: center;
     gap: 50px;
-    min-width: 300px;
+    min-width: 400px;
     max-width: 60%; 
     width: 100%; 
-    
 }
 .hero-content p{
     line-height: 33px;
@@ -89,4 +88,10 @@ body{
         font-size: 24px;
     }
     
+}
+
+@media (max-width: 850px){
+    .hero-content{
+        padding: 0 20px;
+    }
 }
